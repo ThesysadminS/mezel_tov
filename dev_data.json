@@ -1,0 +1,26 @@
+{
+  "couples": {
+    "ש-ד-d4f811": {
+      "couple_id": "ש-ד-d4f811",
+      "groom_name": "ש",
+      "bride_name": "ד",
+      "venue_name": "אבן יאו",
+      "event_date": "11.1.20",
+      "event_day": "שישי",
+      "reception_time": "19:00",
+      "ceremony_time": "19:01",
+      "created_at": "a599534e-daf7-4e72-b7f6-78a49df6bc20"
+    }
+  },
+  "rsvps": [
+    {
+      "couple_id": "ש-ד-d4f811",
+      "phone": "1234567890",
+      "name": "ג ",
+      "guests": 1,
+      "attendance": "yes",
+      "attending": true,
+      "meal": "כשר"
+    }
+  ]
+}

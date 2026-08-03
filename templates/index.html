@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wedding RSVP Guest Page</title>
+
+<style>
+:root{
+  --cream:#fffaf4;
+  --blush:#f3ddd8;
+  --rose:#c98580;
+  --deep:#3b2a2a;
+  --gold:#c9a45c;
+  --white:#ffffff;
+  --muted:#8a7670;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:'Segoe UI', Arial, sans-serif;
+  background:var(--cream);
+  color:var(--deep);
+}
+
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(255,250,244,.82),rgba(255,250,244,.94)),
+    url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+}
+
+.invitation-card{
+  width:100%;
+  max-width:920px;
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(201,164,92,.45);
+  border-radius:38px;
+  padding:54px 42px;
+  box-shadow:0 30px 90px rgba(80,45,45,.13);
+  backdrop-filter:blur(7px);
+}
+
+.header{
+  text-align:center;
+  margin-bottom:34px;
+}
+
+.small-title{
+  color:var(--rose);
+  letter-spacing:5px;
+  font-size:14px;
+  margin-bottom:18px;
+  font-weight:600;
+}
+
+.names{
+  font-family:Georgia, serif;
+  font-size:64px;
+  line-height:1.08;
+  margin:0;
+  color:var(--deep);
+}
+
+.and{
+  color:var(--gold);
+  margin:0 10px;
+}
+
+.message{
+  max-width:650px;
+  margin:24px auto;
+  color:var(--muted);
+  font-size:20px;
+  line-height:1.8;
+}
+
+.event-details{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin:30px 0 40px;
+}
+
+.detail{
+  background:#fffdfb;
+  border:1px solid #efd7cf;
+  border-radius:26px;
+  padding:22px 18px;
+  text-align:center;
+}
+
+.detail-title{
+  color:var(--rose);
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.detail-value{
+  font-size:18px;
+  line-height:1.5;
+}
+
+.maps-buttons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:26px;
+  margin-bottom:30px;
+  flex-wrap:wrap;
+}
+
+.map-btn{
+  text-decoration:none;
+  padding:13px 26px;
+  border-radius:999px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.google-btn{
+  background:#ffffff;
+  color:#3b2a2a;
+  border:1px solid #e7d3cb;
+}
+
+.waze-btn{
+  background:#c98580;
+  color:white;
+}
+
+.map-btn:hover{
+  transform:translateY(-2px);
+}
+
+.form-box{
+  background:#fffdfb;
+  border:1px solid #efd7cf;
+  border-radius:30px;
+  padding:32px;
+}
+
+.form-title{
+  text-align:center;
+  font-family:Georgia, serif;
+  font-size:34px;
+  margin:0 0 10px;
+}
+
+.form-subtitle{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.field{ margin-bottom:18px; }
+
+.full{ grid-column:1 / -1; }
+
+label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:700;
+  color:var(--deep);
+}
+
+input,select{
+  width:100%;
+  padding:15px;
+  border:1px solid #ead2ca;
+  border-radius:18px;
+  background:white;
+  font-size:15px;
+  color:var(--deep);
+}
+
+.radio-group{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.radio-option{
+  border:1px solid #ead2ca;
+  background:white;
+  border-radius:18px;
+  padding:14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
+}
+
+.radio-option input{
+  width:auto;
+  margin:0;
+}
+
+.btn{
+  display:block;
+  width:100%;
+  background:var(--rose);
+  color:white;
+  border:0;
+  padding:16px 38px;
+  border-radius:999px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(201,135,130,.28);
+  margin-top:10px;
+}
+
+.note{
+  text-align:center;
+  margin-top:20px;
+  color:var(--muted);
+  font-size:15px;
+}
+
+.footer{
+  text-align:center;
+  padding:28px 16px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+@media(max-width:800px){
+  .hero{ padding:18px; }
+  .invitation-card{ padding:38px 22px; }
+  .names{ font-size:42px; }
+  .message{ font-size:17px; }
+  .event-details,.form-grid{ grid-template-columns:1fr; }
+  .radio-group{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="invitation-card">
+
+    <div class="header">
+      <div class="small-title">SAVE THE DATE</div>
+
+      <h1 class="names">
+        {{ couple.groom_name }} <span class="and">&</span> {{ couple.bride_name }}
+      </h1>
+
+      <p class="message">
+        אנחנו מתרגשים להזמין אתכם לחגוג איתנו את היום המיוחד שלנו.
+        נשמח שתאשרו הגעה ותעדכנו אותנו בכמות האורחים.
+      </p>
+    </div>
+
+    <div class="event-details">
+      <div class="detail">
+        <div class="detail-title">תאריך</div>
+        <div class="detail-value">{{ couple.event_date }}<br>{{ couple.event_day }}</div>
+      </div>
+
+      <div class="detail">
+        <div class="detail-title">לוח זמנים</div>
+        <div class="detail-value">
+          קבלת פנים · {{ couple.reception_time }}<br>
+          חופה · {{ couple.ceremony_time }}
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detail-title">מיקום</div>
+        <div class="detail-value" id="venue-location">{{ couple.venue_name }}</div>
+      </div>
+    </div>
+
+    <div class="maps-buttons">
+      <a class="map-btn google-btn" target="_blank" id="googleMapsBtn">Google Maps</a>
+      <a class="map-btn waze-btn" target="_blank" id="wazeBtn">Waze ניווט</a>
+    </div>
+
+    <div class="form-box">
+      <h2 class="form-title">אישור הגעה</h2>
+      <div class="form-subtitle">נשמח לדעת האם תגיעו לחגוג איתנו</div>
+
+      <form id="rsvpForm">
+        <div class="form-grid">
+
+          <div class="field full">
+            <label for="guest-name">שם המוזמן</label>
+            <input id="guest-name" name="name" type="text" placeholder="הכנס/י שם מלא" required>
+          </div>
+
+          <div class="field full">
+            <label>האם מגיעים?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="attendance" value="yes" required>
+                כן, מגיעים בשמחה
+              </label>
+
+              <label class="radio-option">
+                <input type="radio" name="attendance" value="no">
+                לצערנו לא נגיע
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="guests-count">כמה מגיעים?</label>
+            <select id="guests-count" name="guests" required>
+              <option value="">בחר/י כמות</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="phone">מספר טלפון</label>
+            <input id="phone" name="phone" type="tel" placeholder="לדוגמה: 050-1234567" required>
+          </div>
+
+          <div class="field full">
+            <label for="meal-type">סוג מנה מועדפת</label>
+            <select id="meal-type" name="meal">
+              <option value="">בחר/י סוג מנה</option>
+              <option value="כשר">כשר</option>
+              <option value="כשר מהדרין">כשר מהדרין</option>
+              <option value="צמחוני">צמחוני</option>
+              <option value="טבעוני">טבעוני</option>
+              <option value="ללא גלוטן">ללא גלוטן</option>
+            </select>
+          </div>
+
+        </div>
+
+        <button class="btn" type="submit">שליחת אישור הגעה</button>
+      </form>
+
+      <div class="note" id="formMessage">
+        תודה שאתם חלק מהיום המיוחד שלנו ♡
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="footer">
+  With love · {{ couple.groom_name }} & {{ couple.bride_name }}
+</div>
+
+<script>
+const coupleId = "{{ couple.couple_id }}";
+
+const venueLocation = document
+  .getElementById("venue-location")
+  .innerText
+  .trim();
+
+const encodedLocation = encodeURIComponent(venueLocation);
+
+document.getElementById("googleMapsBtn").href =
+  `https://www.google.com/maps/search/?api=1&query=${encodedLocation}`;
+
+document.getElementById("wazeBtn").href =
+  `https://waze.com/ul?q=${encodedLocation}&navigate=yes`;
+
+document.getElementById("rsvpForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const messageBox = document.getElementById("formMessage");
+
+  const data = {
+    name: form.name.value,
+    phone: form.phone.value,
+    guests: Number(form.guests.value),
+    attendance: form.attendance.value,
+    meal: form.meal.value
+  };
+
+  try {
+    const response = await fetch(`/submit/${coupleId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      messageBox.innerText = "האישור נשלח בהצלחה!";
+      form.reset();
+    } else {
+      messageBox.innerText = "שגיאה: " + result.error;
+    }
+  } catch (error) {
+    messageBox.innerText = "שגיאה בשליחת הטופס";
+  }
+});
+</script>
+
+</body>
+</html>

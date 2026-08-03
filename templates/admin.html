@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RSVP Admin</title>
+
+<style>
+:root{
+  --cream:#fffaf4;
+  --blush:#f3ddd8;
+  --rose:#c98580;
+  --deep:#3b2a2a;
+  --gold:#c9a45c;
+  --white:#ffffff;
+  --muted:#8a7670;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:'Segoe UI', Arial, sans-serif;
+  background:var(--cream);
+  color:var(--deep);
+}
+
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(255,250,244,.82),rgba(255,250,244,.94)),
+    url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+}
+
+.admin-card{
+  width:100%;
+  max-width:1080px;
+  background:rgba(255,255,255,.86);
+  border:1px solid rgba(201,164,92,.45);
+  border-radius:38px;
+  padding:54px 42px;
+  box-shadow:0 30px 90px rgba(80,45,45,.13);
+  backdrop-filter:blur(7px);
+}
+
+.header{
+  text-align:center;
+  margin-bottom:34px;
+}
+
+.small-title{
+  color:var(--rose);
+  letter-spacing:5px;
+  font-size:14px;
+  margin-bottom:18px;
+  font-weight:600;
+}
+
+.title{
+  font-family:Georgia, serif;
+  font-size:58px;
+  line-height:1.08;
+  margin:0;
+  color:var(--deep);
+}
+
+.message{
+  max-width:720px;
+  margin:24px auto;
+  color:var(--muted);
+  font-size:20px;
+  line-height:1.8;
+}
+
+.form-box,
+.table-box{
+  background:#fffdfb;
+  border:1px solid #efd7cf;
+  border-radius:30px;
+  padding:32px;
+  margin-top:28px;
+}
+
+.form-title{
+  text-align:center;
+  font-family:Georgia, serif;
+  font-size:34px;
+  margin:0 0 10px;
+}
+
+.form-subtitle{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.field{
+  margin-bottom:18px;
+}
+
+.full{
+  grid-column:1 / -1;
+}
+
+label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:700;
+  color:var(--deep);
+}
+
+input{
+  width:100%;
+  padding:15px;
+  border:1px solid #ead2ca;
+  border-radius:18px;
+  background:white;
+  font-size:15px;
+  color:var(--deep);
+}
+
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  background:var(--rose);
+  color:white;
+  border:0;
+  padding:14px 28px;
+  border-radius:999px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(201,135,130,.28);
+  transition:.2s;
+}
+
+.btn.secondary{
+  background:white;
+  color:var(--deep);
+  border:1px solid #e7d3cb;
+  box-shadow:none;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0 12px;
+}
+
+th{
+  text-align:right;
+  color:var(--rose);
+  font-size:14px;
+  padding:10px;
+}
+
+td{
+  background:white;
+  border-top:1px solid #ead2ca;
+  border-bottom:1px solid #ead2ca;
+  padding:16px 10px;
+}
+
+td:first-child{
+  border-right:1px solid #ead2ca;
+  border-radius:0 18px 18px 0;
+}
+
+td:last-child{
+  border-left:1px solid #ead2ca;
+  border-radius:18px 0 0 18px;
+}
+
+.note{
+  text-align:center;
+  margin-top:20px;
+  color:var(--muted);
+  font-size:15px;
+}
+
+.footer{
+  text-align:center;
+  padding:28px 16px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+@media(max-width:800px){
+  .hero{ padding:18px; }
+  .admin-card{ padding:38px 22px; }
+  .title{ font-size:40px; }
+  .message{ font-size:17px; }
+  .form-grid{ grid-template-columns:1fr; }
+
+  table, thead, tbody, th, td, tr{
+    display:block;
+  }
+
+  thead{ display:none; }
+
+  tr{
+    background:white;
+    border:1px solid #ead2ca;
+    border-radius:18px;
+    padding:14px;
+    margin-bottom:14px;
+  }
+
+  td{
+    border:0;
+    padding:8px 0;
+  }
+
+  td:first-child,
+  td:last-child{
+    border:0;
+    border-radius:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="admin-card">
+
+    <div class="header">
+      <div class="small-title">RSVP ADMIN</div>
+
+      <h1 class="title">ברוכים הבאים</h1>
+
+      <p class="message">
+        למערכת ניהול הזוגות של RSVP.
+        כאן תוכלו ליצור עמוד RSVP חדש לכל זוג,
+        לצפות באתרים הקיימים ולהוריד את רשימת האישורים.
+      </p>
+    </div>
+
+    <div class="form-box">
+      <h2 class="form-title">ליצירת זוג חדש</h2>
+      <div class="form-subtitle">
+        מלאו את פרטי החתן, הכלה והאירוע כדי ליצור עמוד RSVP אישי
+      </div>
+
+      <form method="POST" action="/admin/create-couple">
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="groom_name">שם החתן</label>
+            <input id="groom_name" name="groom_name" type="text" placeholder="לדוגמה: דניאל" required>
+          </div>
+
+          <div class="field">
+            <label for="bride_name">שם הכלה</label>
+            <input id="bride_name" name="bride_name" type="text" placeholder="לדוגמה: נועה" required>
+          </div>
+
+          <div class="field full">
+            <label for="venue_name">שם האולם / מיקום</label>
+            <input id="venue_name" name="venue_name" type="text" placeholder="לדוגמה: ADEO אבן יהודה" required>
+          </div>
+
+          <div class="field">
+            <label for="event_date">תאריך האירוע</label>
+            <input id="event_date" name="event_date" type="text" placeholder="לדוגמה: 12.09.2026" required>
+          </div>
+
+          <div class="field">
+            <label for="event_day">יום</label>
+            <input id="event_day" name="event_day" type="text" placeholder="לדוגמה: יום חמישי">
+          </div>
+
+          <div class="field">
+            <label for="reception_time">שעת קבלת פנים</label>
+            <input id="reception_time" name="reception_time" type="text" placeholder="לדוגמה: 19:30">
+          </div>
+
+          <div class="field">
+            <label for="ceremony_time">שעת חופה</label>
+            <input id="ceremony_time" name="ceremony_time" type="text" placeholder="לדוגמה: 20:30">
+          </div>
+
+        </div>
+
+        <button class="btn" type="submit">יצירת דף RSVP</button>
+      </form>
+
+      {% if message %}
+        <div class="note">{{ message }}</div>
+      {% endif %}
+    </div>
+
+    <div class="table-box">
+      <h2 class="form-title">אתרים קיימים</h2>
+      <div class="form-subtitle">רשימת דפי RSVP שנוצרו</div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>זוג</th>
+            <th>אולם</th>
+            <th>תאריך</th>
+            <th>פעולות</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for couple in couples %}
+          <tr>
+            <td>{{ couple.groom_name }} & {{ couple.bride_name }}</td>
+            <td>{{ couple.venue_name }}</td>
+            <td>{{ couple.event_date }}</td>
+            <td>
+              <div class="actions">
+                <a class="btn secondary" href="/c/{{ couple.couple_id }}" target="_blank">פתיחת אתר</a>
+                <a class="btn" href="/admin/download/{{ couple.couple_id }}">הורדת CSV</a>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      {% if not couples %}
+        <div class="note">עדיין לא נוצרו זוגות.</div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<div class="footer">
+  RSVP Admin · Wedding Manager
+</div>
+
+</body>
+</html>
